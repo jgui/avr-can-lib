@@ -210,6 +210,7 @@
 #define CLKPRE0		0
 
 /** \brief	Bitdefinition von CNF3 */
+#define SOF			7
 #define WAKFIL		6
 #define PHSEG22		2
 #define PHSEG21		1

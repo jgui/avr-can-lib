@@ -1,8 +1,5 @@
-#ifndef	CONFIG_H
-#define	CONFIG_H
-
-#warning "Default config.h used!"
-#define CAN_CONFIG_LOADED
+#ifndef	CANCONFIG_H
+#define	CANCONFIG_H
 
 // -----------------------------------------------------------------------------
 /* Global settings for building the can-lib and application program.
@@ -77,4 +74,4 @@
 // only available if CAN_TX_BUFFER_SIZE > 0
 #define CAN_FORCE_TX_ORDER		1
 
-#endif	// CONFIG_H
+#endif	// CANCONFIG_H
