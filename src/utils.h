@@ -219,11 +219,11 @@ static inline uint8_t read_and_replace_atomar(volatile uint8_t *data, uint8_t ne
 /* Warum hier zum Teil so seltsame Konstrukte notwendig sind wird zum Beispiel
  * in http://www.mikrocontroller.net/forum/read-1-324854.html#324980 erklärt.
  */
-#define	PORT(x)			_port2(x)
-#define	DDR(x)			_ddr2(x)
-#define	PIN(x)			_pin2(x)
-#define	REG(x)			_reg(x)
-#define	PIN_NUM(x)		_pin_num(x)
+#define	PORT_(x)		_port2(x)
+#define	DDR_(x)			_ddr2(x)
+#define	PIN_(x)			_pin2(x)
+#define	REG_(x)			_reg(x)
+#define	PIN_NUM_(x)		_pin_num(x)
 
 #define	RESET(x)		RESET2(x)
 #define	SET(x)			SET2(x)
@@ -242,15 +242,15 @@ static inline uint8_t read_and_replace_atomar(volatile uint8_t *data, uint8_t ne
 #define	_reg(x,y)		x
 #define	_pin_num(x,y)	y
 
-#define	RESET2(x,y)		PORT(x) &= ~(1<<y)
-#define	SET2(x,y)		PORT(x) |= (1<<y)
-#define	TOGGLE2(x,y)	PORT(x) ^= (1<<y)
+#define	RESET2(x,y)		PORT_(x) &= ~(1<<y)
+#define	SET2(x,y)		PORT_(x) |= (1<<y)
+#define	TOGGLE2(x,y)	PORT_(x) ^= (1<<y)
 
-#define	SET_OUTPUT2(x,y)	DDR(x) |= (1<<y)
-#define	SET_INPUT2(x,y)		DDR(x) &= ~(1<<y)
+#define	SET_OUTPUT2(x,y)	DDR_(x) |= (1<<y)
+#define	SET_INPUT2(x,y)		DDR_(x) &= ~(1<<y)
 #define	SET_INPUT_WITH_PULLUP2(x,y)	SET_INPUT2(x,y);SET2(x,y)
 
-#define	IS_SET2(x,y)	((PIN(x) & (1<<y)) != 0)
+#define	IS_SET2(x,y)	((PIN_(x) & (1<<y)) != 0)
 
 #endif /* DOXYGEN */
 //@}

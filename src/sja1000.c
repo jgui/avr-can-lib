@@ -38,12 +38,12 @@ void sja1000_write(uint8_t address, uint8_t data)
 {
 	// set address
 	SET(SJA1000_ALE);
-	PORT(SJA1000_DATA) = address;
+	PORT_(SJA1000_DATA) = address;
 	_NOP();
 	RESET(SJA1000_ALE);
 	
 	// write data
-	PORT(SJA1000_DATA) = data;
+	PORT_(SJA1000_DATA) = data;
 	RESET(SJA1000_WR);
 	_NOP();
 	SET(SJA1000_WR);
@@ -55,17 +55,17 @@ uint8_t sja1000_read(uint8_t address)
 	
 	// set address
 	SET(SJA1000_ALE);
-	PORT(SJA1000_DATA) = address;
+	PORT_(SJA1000_DATA) = address;
 	_NOP();
 	RESET(SJA1000_ALE);
-	DDR(SJA1000_DATA) = 0;
+	DDR_(SJA1000_DATA) = 0;
 	
 	// read data
 	RESET(SJA1000_RD);
 	_NOP();
-	data = PIN(SJA1000_DATA);
+	data = PIN_(SJA1000_DATA);
 	SET(SJA1000_RD);
-	DDR(SJA1000_DATA) = 0xff;
+	DDR_(SJA1000_DATA) = 0xff;
 	
 	return data;
 }
@@ -128,7 +128,7 @@ bool sja1000_init(uint8_t bitrate)
 		SET_OUTPUT(SJA1000_ALE);
 
 		SET_OUTPUT(SJA1000_CS);
-		DDR(SJA1000_DATA) = 0xff;
+		DDR_(SJA1000_DATA) = 0xff;
 	#endif
 	
 	// enter reset mode
