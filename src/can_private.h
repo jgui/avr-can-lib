@@ -79,6 +79,7 @@
 		#define mcp2515_check_message(...)			can_check_message(__VA_ARGS__)
 		#define mcp2515_get_filter(...)				can_get_filter(__VA_ARGS__)
 		#define mcp2515_static_filter(...)			can_static_filter(__VA_ARGS__)
+		#define mcp2515_static_filter2(...)			can_static_filter2(__VA_ARGS__)
 		#define mcp2515_set_filter(...)				can_set_filter(__VA_ARGS__)
 		#define mcp2515_get_message(...)			can_get_message(__VA_ARGS__)
 		#define mcp2515_send_message(...)			can_send_message(__VA_ARGS__)
